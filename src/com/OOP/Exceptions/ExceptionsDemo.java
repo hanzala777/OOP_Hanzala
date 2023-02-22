@@ -21,19 +21,22 @@ RUNTIME EXCEPTIONS:
 */
 public class ExceptionsDemo {
     public static void show(){
+        FileReader reader=null;
         try {
-            FileReader reader = new FileReader("file.txt");
+            reader = new FileReader("file.txt");
             int value=reader.read();
-            new SimpleDateFormat().parse("");
-            System.out.println("File Opened");
         }
-        catch(FileNotFoundException ex){
-            System.out.println("File does not exist!");
-            //OR
-            System.out.println(ex.getMessage());
-        }
-        catch (IOException | ParseException ex){
+        catch (IOException e){
             System.out.println("Couldn't read data.");
+        }
+        finally {
+            if(reader!=null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }
