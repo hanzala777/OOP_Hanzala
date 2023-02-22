@@ -1,5 +1,5 @@
 package com.OOP.Classes;
-
+//Procedural Programming...
 public class CalculateWage {
     public static void main(String[] args) {
         int baseSalary=50_000;
