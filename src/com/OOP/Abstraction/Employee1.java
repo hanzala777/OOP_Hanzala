@@ -7,6 +7,9 @@ public class Employee1 {
         setBaseSalary(baseSalary);
         setHourlyRate(hourlyRate);
     }
+    public Employee1(int baseSalary){
+        this(baseSalary,0);//here, 'this' keyword refers to the above constructor
+    }
     public int calculateWage(int extraHours) {
         return getBaseSalary()+(getHourlyRate() *extraHours);
     }
@@ -29,7 +32,7 @@ public class Employee1 {
         return hourlyRate;
     }
     private void setHourlyRate(int hourlyRate) {
-        if(hourlyRate<=0)
+        if(hourlyRate<0)
             throw new IllegalArgumentException("Hourly Rate cannot be Zero");
         this.hourlyRate = hourlyRate;
     }
