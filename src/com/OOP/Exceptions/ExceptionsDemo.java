@@ -21,22 +21,12 @@ RUNTIME EXCEPTIONS:
 */
 public class ExceptionsDemo {
     public static void show(){
-        FileReader reader=null;
-        try {
-            reader = new FileReader("file.txt");
+        //try with resources
+        try (FileReader reader = new FileReader("file.txt");){
             int value=reader.read();
         }
         catch (IOException e){
             System.out.println("Couldn't read data.");
-        }
-        finally {
-            if(reader!=null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
     }
 }
